@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "cascadia code:pixelsize=18:antialias=true:autohint=true";
+static char *font = "cascadia code:pixelsize=16:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -94,7 +94,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.82;
+float alpha = 0.85;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -209,7 +209,7 @@ static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NUL
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
-	{ Mod1Mask|ControlMask, XK_l,           externalpipe,   {.v = openurlcmd } },
+	{ Mod1Mask|ShiftMask,   XK_L,           externalpipe,   {.v = openurlcmd } },
 	{ Mod1Mask,             XK_y,           externalpipe,   {.v = copyurlcmd } },
 	{ Mod1Mask,             XK_c,           externalpipe,   {.v = copyoutput } },
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
@@ -224,8 +224,10 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i =  1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i =  1} },
+	{ Mod1Mask|ShiftMask,   XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ Mod1Mask|ShiftMask,   XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*
