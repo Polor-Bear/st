@@ -152,7 +152,7 @@ unsigned int defaultunderline = 7;
  * 6: steady bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorstyle = 1;
+static unsigned int cursorstyle = 3;
 
 /*
  * Default columns and rows numbers
